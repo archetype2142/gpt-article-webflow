@@ -15,18 +15,17 @@ const files = fs.readdirSync('./articles/');
 
 files.forEach(fileName => {
   fs.readFile(`./articles/${fileName}`, 'utf8', (err, data) => {
+    if(fileName == 'test.json') return;
     if (err) {
       console.error(err);
       return;
     }
-    // uploadArticle(JSON.parse(data).article)
-
+    uploadArticle(JSON.parse(data).article)
     console.log(JSON.parse(data).article);
   });
 })
 
 async function uploadArticle(article) {
-
   const created_item = await webflow.createItem({
     collectionId: process.env.COLLECTION_ID,
     fields: { 
@@ -34,9 +33,11 @@ async function uploadArticle(article) {
       name: article.name,
       _archived: false,
       _draft: false,
-      'post-body': article.body
+      'post-body': article.body,
+      image: {
+        url: article.image_url
+      }
     }
   })
-
   console.log(created_item)
 }

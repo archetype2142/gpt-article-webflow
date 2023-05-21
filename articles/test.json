@@ -2,6 +2,7 @@
   "article": {
     "name": "article_name",
     "slug": "article_slug",
-    "body": "article body"
+    "body": "article body",
+    "image_url": "url"
   }
 }

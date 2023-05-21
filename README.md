@@ -17,3 +17,5 @@ Run article generator with `python3 app.py`
 Run uploader with `node app.js`
 
 It will loop through all articles in article folder and upload it to the particular webflow collection
+
+Contributor: [Tanvin Sharma](https://github.com/tanvinsharma)
